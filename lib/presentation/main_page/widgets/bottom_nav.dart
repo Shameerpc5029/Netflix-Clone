@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:netflix_app/code/colors/colors.dart';
+import 'package:netflix_app/core/colors/colors.dart';
 
 ValueNotifier<int> IndexChangeNotifier = ValueNotifier(0);
 

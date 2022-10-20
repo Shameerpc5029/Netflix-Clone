@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:netflix_app/code/colors/colors.dart';
+import 'package:netflix_app/core/colors/colors.dart';
 import 'package:netflix_app/presentation/main_page/main_screen.dart';
 
 void main() {

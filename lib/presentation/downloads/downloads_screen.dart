@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:netflix_app/code/colors/colors.dart';
-import 'package:netflix_app/code/constants.dart';
+import 'package:netflix_app/core/colors/colors.dart';
+import 'package:netflix_app/core/constants.dart';
 import 'package:netflix_app/presentation/downloads/widgets/app_bar_widget.dart';
 
 class DownloadsScreen extends StatelessWidget {
