@@ -22,7 +22,7 @@ class DownloadsScreen extends StatelessWidget {
             title: 'Downloads',
           )),
       body: ListView.separated(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         itemBuilder: ((context, index) => _widgetList[index]),
         separatorBuilder: ((context, index) => const SizedBox(
               height: 20,
