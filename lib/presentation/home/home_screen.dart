@@ -38,11 +38,10 @@ class HomeScreen extends StatelessWidget {
                     const MainTitleCard(
                       title: 'Released in the past year',
                     ),
-                    kheight20,
                     const MainTitleCard(
                       title: 'Trending Now',
                     ),
-                    kheight20,
+                    kheight10,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -61,14 +60,12 @@ class HomeScreen extends StatelessWidget {
                             separatorBuilder: ((context, index) => kwidth),
                             itemCount: 10,
                           ),
-                        )
+                        ),
                       ],
                     ),
-                    kheight20,
                     const MainTitleCard(
                       title: 'Tense Dramas',
                     ),
-                    kheight20,
                     const MainTitleCard(
                       title: 'South Indian Cinema',
                     ),
@@ -84,9 +81,10 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
+                                kwidth,
                                 Image.asset(
                                   'assets/images/logo netflix.png',
-                                  width: 50,
+                                  width: 20,
                                 ),
                                 const Spacer(),
                                 IconButton(

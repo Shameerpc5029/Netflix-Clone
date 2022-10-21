@@ -3,13 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:netflix_app/core/colors/colors.dart';
 import 'package:netflix_app/core/constants.dart';
-import 'package:netflix_app/presentation/downloads/widgets/app_bar_widget.dart';
+import 'package:netflix_app/presentation/widgets/app_bar_widget.dart';
 
 class DownloadsScreen extends StatelessWidget {
   DownloadsScreen({super.key});
   final _widgetList = [
     const _SartDownloads(),
- kheight10,
+    kheight10,
     Section2(),
     const Section3(),
   ];
@@ -17,10 +17,11 @@ class DownloadsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(50),
-          child: AppBarWidget(
-            title: 'Downloads',
-          )),
+        preferredSize: Size.fromHeight(50),
+        child: AppBarWidget(
+          title: 'Downloads',
+        ),
+      ),
       body: ListView.separated(
         padding: const EdgeInsets.all(5),
         itemBuilder: ((context, index) => _widgetList[index]),
@@ -61,7 +62,7 @@ class Section3 extends StatelessWidget {
             ),
           ),
         ),
- kheight10,
+        kheight10,
         MaterialButton(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
@@ -107,7 +108,7 @@ class Section2 extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
- kheight10,
+        kheight10,
         const Text(
           "We Will Download A Personalised selection\nof movie and show for you, so there's\nalways something to watch on your\ndevice ",
           textAlign: TextAlign.center,

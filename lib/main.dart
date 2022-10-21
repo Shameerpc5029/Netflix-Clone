@@ -15,10 +15,13 @@ class MyAPP extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          color: Colors.transparent,
+        ),
         primarySwatch: Colors.blue,
         backgroundColor: Colors.black,
         scaffoldBackgroundColor: backgroundColor,
-        fontFamily: GoogleFonts.montserrat().fontFamily,
+        fontFamily: 'morata',
         textTheme: const TextTheme(
             bodyText1: TextStyle(
               color: Colors.white,

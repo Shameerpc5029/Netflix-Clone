@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:netflix_app/core/colors/colors.dart';
 import 'package:netflix_app/core/constants.dart';
 import 'package:netflix_app/presentation/home/widgets/custom_button.dart';
@@ -23,23 +21,27 @@ class BackgroundCard extends StatelessWidget {
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const CunstomButtonWidget(
-              icon: Icons.add,
-              text: 'My List',
-            ),
-            _playButton(),
-            const CunstomButtonWidget(
-              text: 'Info',
-              icon: Icons.info_outline,
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const CunstomButtonWidget(
+                icon: Icons.add,
+                text: 'My List',
+              ),
+              _playButton(),
+              const CunstomButtonWidget(
+                text: 'Info',
+                icon: Icons.info_outline,
+              )
+            ],
+          ),
         ),
       ],
     );
   }
+
   TextButton _playButton() {
     return TextButton.icon(
       style: ButtonStyle(
