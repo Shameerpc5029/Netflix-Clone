@@ -12,7 +12,7 @@ class DownloadsScreen extends StatelessWidget {
   final _widgetList = [
     const _SartDownloads(),
     kheight10,
-    Section2(),
+    const Section2(),
     const Section3(),
   ];
   @override
