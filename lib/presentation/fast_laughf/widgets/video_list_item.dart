@@ -45,12 +45,21 @@ class VideoListItem extends StatelessWidget {
                     ),
                   ),
                   VideoActionsWidget(
-                      icon: Icons.emoji_emotions_rounded, tittle: 'LOL'),
+                    icon: Icons.emoji_emotions_rounded,
+                    tittle: 'LOL',
+                  ),
                   VideoActionsWidget(
-                      icon: CupertinoIcons.add, tittle: 'My List'),
-                  VideoActionsWidget(icon: Icons.share, tittle: 'Share'),
+                    icon: CupertinoIcons.add,
+                    tittle: 'My List',
+                  ),
                   VideoActionsWidget(
-                      icon: Icons.play_arrow_rounded, tittle: 'play'),
+                    icon: Icons.near_me_outlined,
+                    tittle: 'Share',
+                  ),
+                  VideoActionsWidget(
+                    icon: Icons.play_arrow_rounded,
+                    tittle: 'play',
+                  ),
                 ],
               )
             ],
@@ -74,9 +83,7 @@ class VideoActionsWidget extends StatelessWidget {
       child: Column(
         children: [
           IconButton(
-            onPressed: () {
-              
-            },
+            onPressed: () {},
             icon: Icon(
               icon,
               size: 30,

@@ -37,7 +37,7 @@ class EveryoncesWatchingWidget extends StatelessWidget {
           children: const [
             CunstomButtonWidget(
               text: 'Share',
-              icon: Icons.share_rounded,
+              icon: Icons.near_me_outlined,
               textSize: 10,
               fontWeight: FontWeight.w300,
               textColor: greyColor,
