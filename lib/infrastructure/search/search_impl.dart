@@ -21,6 +21,7 @@ class SearchImpl implements SearchService {
           'query': movieQuery,
         },
       );
+      log(response.data.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         final result = SearchResp.fromJson(response.data);
         return Right(result);

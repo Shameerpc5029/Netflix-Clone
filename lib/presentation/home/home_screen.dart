@@ -3,10 +3,10 @@ import 'package:flutter/rendering.dart';
 import 'package:netflix_app/core/colors/colors.dart';
 import 'package:netflix_app/core/constants.dart';
 import 'package:netflix_app/presentation/home/widgets/background_card.dart';
-import 'package:netflix_app/presentation/home/widgets/custom_button.dart';
+
 import 'package:netflix_app/presentation/home/widgets/main_title_card.dart';
 import 'package:netflix_app/presentation/home/widgets/number_card.dart';
-import 'package:netflix_app/presentation/widgets/main_card.dart';
+
 import 'package:netflix_app/presentation/widgets/main_title.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);

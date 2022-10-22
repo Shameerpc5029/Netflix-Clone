@@ -1,3 +1,5 @@
+
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -63,9 +65,37 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 /*
     searchREsult state
     */
-    on<SeachMovie>((event, emit) {
+    on<SeachMovie>((event, emit) async {
       //call search movie api
-      _searchService.searchMoives(movieQuery: event.movieQuery);
+      emit(
+        const SearchState(
+          searchResultList: [],
+          idleList: [],
+          isLoading: true,
+          isError: false,
+        ),
+      );
+      final _result =
+          await _searchService.searchMoives(movieQuery: event.movieQuery);
+      final _state = _result.fold(
+        (MainFailure f) {
+          return const SearchState(
+            searchResultList: [],
+            idleList: [],
+            isLoading: false,
+            isError: true,
+          );
+        },
+        (SearchResp r) {
+          return SearchState(
+            searchResultList: r.results!,
+            idleList: [],
+            isLoading: false,
+            isError: false,
+          );
+        },
+      );
+      emit(_state);
       //show to ui
     });
   }

@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_app/core/colors/colors.dart';
 import 'package:netflix_app/core/constants.dart';
-import 'package:netflix_app/presentation/home/widgets/custom_button.dart';
+
 import 'package:netflix_app/presentation/new_and_hot/widgets/Everyonce_waching_widget.dart';
 import 'package:netflix_app/presentation/new_and_hot/widgets/coming_soon_widget.dart';
-import 'package:netflix_app/presentation/widgets/video_widget.dart';
 
 class NewAndHot extends StatelessWidget {
   const NewAndHot({super.key});

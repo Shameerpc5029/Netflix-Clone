@@ -22,12 +22,12 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: ValueListenableBuilder(
-            valueListenable: IndexChangeNotifier,
+            valueListenable: indexChangeNotifier,
             builder: ((context, int index, _) {
               return _pages[index];
             })),
       ),
-      bottomNavigationBar: BottomNavWidget(),
+      bottomNavigationBar: const BottomNavWidget(),
     );
   }
 }
