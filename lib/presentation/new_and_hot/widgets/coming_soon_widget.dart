@@ -5,8 +5,21 @@ import 'package:netflix_app/presentation/home/widgets/custom_button.dart';
 import 'package:netflix_app/presentation/widgets/video_widget.dart';
 
 class ComingSoonWidget extends StatelessWidget {
+  final String id;
+  final String month;
+  final String day;
+  final String posterPath;
+  final String movieName;
+  final String description;
+
   const ComingSoonWidget({
     Key? key,
+    required this.id,
+    required this.month,
+    required this.day,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -21,16 +34,16 @@ class ComingSoonWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                'feb'.toUpperCase(),
+                month.toUpperCase(),
                 style: const TextStyle(
                   fontSize: 16,
                   color: greyColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const Text(
-                '11',
-                style: TextStyle(
+              Text(
+                day,
+                style: const TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'morata',
@@ -45,16 +58,22 @@ class ComingSoonWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const VideoWidget(),
+              VideoWidget(
+                url: posterPath,
+              ),
               kheight10,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Movie Title',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Text(
+                      movieName,
+                      style: const TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Row(
@@ -81,7 +100,7 @@ class ComingSoonWidget extends StatelessWidget {
                 ],
               ),
               kheight10,
-              const Text('Coming On Friday'),
+              Text('Coming On $day $month'),
               kheight10,
               Row(
                 children: const [
@@ -103,17 +122,20 @@ class ComingSoonWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              const Text(
-                'Movie Name',
-                style: TextStyle(
+              Text(
+                movieName,
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               kheight10,
-              const Text(
-                'Landing the lead in the school musical is a dream come true for jodi,until the pressure sends her confidence - and her relationship - into a tailspin',
-                style: TextStyle(
+              Text(
+                description,
+                maxLines: 5,
+                style: const TextStyle(
                   color: greyColor,
                 ),
               ),

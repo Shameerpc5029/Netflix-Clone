@@ -5,8 +5,15 @@ import 'package:netflix_app/presentation/home/widgets/custom_button.dart';
 import 'package:netflix_app/presentation/widgets/video_widget.dart';
 
 class EveryoncesWatchingWidget extends StatelessWidget {
+  final String posterPath;
+  final String movieName;
+  final String description;
+
   const EveryoncesWatchingWidget({
     Key? key,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -30,7 +37,7 @@ class EveryoncesWatchingWidget extends StatelessWidget {
           ),
         ),
         kheight20,
-        const VideoWidget(),
+         VideoWidget(url: posterPath),
         kheight10,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,

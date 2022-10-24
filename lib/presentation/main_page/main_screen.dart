@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_app/presentation/downloads/downloads_screen.dart';
-import 'package:netflix_app/presentation/fast_laughf/fast_laughf_screen.dart';
+import 'package:netflix_app/presentation/fast_laughf/fast_laugh_screen.dart';
 import 'package:netflix_app/presentation/home/home_screen.dart';
 import 'package:netflix_app/presentation/main_page/widgets/bottom_nav.dart';
 import 'package:netflix_app/presentation/new_and_hot/new_and_hot_screen.dart';
