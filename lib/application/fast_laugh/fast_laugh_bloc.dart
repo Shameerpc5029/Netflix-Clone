@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_app/application/search/search_bloc.dart';
 import 'package:netflix_app/domain/downloads/i_downloads_repo.dart';
 import 'package:netflix_app/domain/downloads/models/downloads.dart';
 
@@ -27,7 +26,7 @@ class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
   ) : super(FastLaughState.initial()) {
     on<Initialize>((event, emit) async {
       //sending loading to ui
-      emit(FastLaughState(
+      emit(const FastLaughState(
         videosList: [],
         isLoding: true,
         isError: false,
@@ -36,7 +35,7 @@ class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
       final _result = await _downloadService.getDownloadsImage();
       final _state = _result.fold(
         (l) {
-          return FastLaughState(
+          return const FastLaughState(
             videosList: [],
             isLoding: false,
             isError: true,

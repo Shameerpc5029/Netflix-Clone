@@ -1,15 +1,14 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix_app/application/home/home_bloc.dart';
+
 import 'package:netflix_app/core/colors/colors.dart';
 import 'package:netflix_app/core/constants.dart';
 import 'package:netflix_app/presentation/home/widgets/background_card.dart';
 import 'package:netflix_app/presentation/home/widgets/main_title_card.dart';
-import 'package:netflix_app/presentation/home/widgets/number_card.dart';
+
 import 'package:netflix_app/presentation/home/widgets/number_title_card.dart';
-import 'package:netflix_app/presentation/widgets/main_title.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
@@ -18,7 +17,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPersistentFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<HomeBloc>(context).add(const GetHomeScreenData());
     });
     return Scaffold(
@@ -48,63 +47,72 @@ class HomeScreen extends StatelessWidget {
                     } else if (state.hasError) {
                       return const Center(
                         child: Text(
-                          'Error while Getting Data',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
+                          'Error while getting data',
+                          style: TextStyle(color: whiteColor),
                         ),
                       );
                     }
 
-                    final _releasedPastedYear =
-                        state.pastYearMovieList.map((m) {
+                    // released past year
+                    final _releasedPastYear = state.pastYearMovieList.map((m) {
                       return '$imageAppendUrl${m.posterPath}';
                     }).toList();
+                    _releasedPastYear.shuffle();
 
-                    final _tranding = state.trendingMovieList.map((m) {
+                    // trending
+                    final _trending = state.trandingMovieList.map((m) {
                       return '$imageAppendUrl${m.posterPath}';
                     }).toList();
+                    _trending.shuffle();
+                    // tense dramas
+                    final _tenseDramas = state.tenseDramaMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+                    // south indian movies
+                    _tenseDramas.shuffle();
+                    final _southIndianMovies =
+                        state.southIndianMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+                    _southIndianMovies.shuffle();
 
-                    final _drama = state.tenseDramasMovieList.map((m) {
-                      return '$imageAppendUrl${m.posterPath}';
-                    }).toList();
+                    //top 10 tv shows
 
-                    final _southIndian = state.southIndianMovieList.map((m) {
+                    final _top10TvShows = state.southIndianMovieList.map((m) {
                       return '$imageAppendUrl${m.posterPath}';
                     }).toList();
-
-                    final _top10 = state.southIndianMovieList.map((m) {
-                      return '$imageAppendUrl${m.posterPath}';
-                    }).toList();
+                    _top10TvShows.shuffle();
                     return SingleChildScrollView(
                         child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const BackgroundCard(),
-                        if (_releasedPastedYear.length >= 10)
-                          MainTitleCard(
-                            title: 'Released in the past year',
-                            posterList: _releasedPastedYear,
-                          ),
-                        if (_tranding.length >= 10)
-                          MainTitleCard(
-                            title: 'Trending Now',
-                            posterList: _tranding,
-                          ),
+
+                        MainTitleCard(
+                          title: 'Released in the past year',
+                          posterList: _releasedPastYear.sublist(0, 10),
+                        ),
+
+                        MainTitleCard(
+                          title: 'Trending Now',
+                          posterList: _trending.sublist(0, 10),
+                        ),
                         kheight10,
 
-                        ///
-                        NumberTitleCard(posterList: _top10),
-                        if (_drama.length >= 10)
-                          MainTitleCard(
-                            title: 'Tense Dramas',
-                            posterList: _drama,
-                          ),
-                        if (_southIndian.length >= 10)
-                          MainTitleCard(
-                            title: 'South Indian Cinema',
-                            posterList: _southIndian,
-                          ),
+                        ///number card
+                        NumberTitleCard(
+                          posterList: _top10TvShows.sublist(0, 10),
+                        ),
+
+                        MainTitleCard(
+                          title: 'Tense Dramas',
+                          posterList: _tenseDramas.sublist(0, 10),
+                        ),
+
+                        MainTitleCard(
+                          title: 'South Indian Cinema',
+                          posterList: _southIndianMovies.sublist(0, 10),
+                        ),
                       ],
                     ));
                   },

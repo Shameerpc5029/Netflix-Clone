@@ -10,9 +10,9 @@ class MainScreen extends StatelessWidget {
   MainScreen({super.key});
 
   final _pages = [
-    HomeScreen(),
-    NewAndHot(),
-    FastLaughfScreen(),
+    const HomeScreen(),
+    const NewAndHot(),
+    const FastLaughfScreen(),
     SearchScreen(),
     DownloadsScreen(),
   ];

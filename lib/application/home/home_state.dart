@@ -5,22 +5,21 @@ class HomeState with _$HomeState {
   const factory HomeState({
     required String stateId,
     required List<HotAndNewData> pastYearMovieList,
-    required List<HotAndNewData> trendingMovieList,
-    required List<HotAndNewData> tenseDramasMovieList,
+    required List<HotAndNewData> trandingMovieList,
+    required List<HotAndNewData> tenseDramaMovieList,
     required List<HotAndNewData> southIndianMovieList,
     required List<HotAndNewData> trandingTvList,
     required bool isLoading,
     required bool hasError,
   }) = _Initial;
-
   factory HomeState.initial() => const HomeState(
+    stateId: '0',
         pastYearMovieList: [],
-        trendingMovieList: [],
-        tenseDramasMovieList: [],
+        trandingMovieList: [],
+        tenseDramaMovieList: [],
         southIndianMovieList: [],
         trandingTvList: [],
         isLoading: false,
         hasError: false,
-        stateId: '0',
       );
 }

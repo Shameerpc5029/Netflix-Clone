@@ -2,6 +2,5 @@ part of 'home_bloc.dart';
 
 @freezed
 class HomeEvent with _$HomeEvent {
-  const factory HomeEvent.getHomeScreenData() = GetHomeScreenData;
-  
+  const factory HomeEvent.getHomeScreenData() =GetHomeScreenData;
 }

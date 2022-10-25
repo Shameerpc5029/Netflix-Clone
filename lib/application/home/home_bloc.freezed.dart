@@ -168,9 +168,9 @@ mixin _$HomeState {
   String get stateId => throw _privateConstructorUsedError;
   List<HotAndNewData> get pastYearMovieList =>
       throw _privateConstructorUsedError;
-  List<HotAndNewData> get trendingMovieList =>
+  List<HotAndNewData> get trandingMovieList =>
       throw _privateConstructorUsedError;
-  List<HotAndNewData> get tenseDramasMovieList =>
+  List<HotAndNewData> get tenseDramaMovieList =>
       throw _privateConstructorUsedError;
   List<HotAndNewData> get southIndianMovieList =>
       throw _privateConstructorUsedError;
@@ -191,8 +191,8 @@ abstract class $HomeStateCopyWith<$Res> {
   $Res call(
       {String stateId,
       List<HotAndNewData> pastYearMovieList,
-      List<HotAndNewData> trendingMovieList,
-      List<HotAndNewData> tenseDramasMovieList,
+      List<HotAndNewData> trandingMovieList,
+      List<HotAndNewData> tenseDramaMovieList,
       List<HotAndNewData> southIndianMovieList,
       List<HotAndNewData> trandingTvList,
       bool isLoading,
@@ -214,8 +214,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   $Res call({
     Object? stateId = null,
     Object? pastYearMovieList = null,
-    Object? trendingMovieList = null,
-    Object? tenseDramasMovieList = null,
+    Object? trandingMovieList = null,
+    Object? tenseDramaMovieList = null,
     Object? southIndianMovieList = null,
     Object? trandingTvList = null,
     Object? isLoading = null,
@@ -230,13 +230,13 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.pastYearMovieList
           : pastYearMovieList // ignore: cast_nullable_to_non_nullable
               as List<HotAndNewData>,
-      trendingMovieList: null == trendingMovieList
-          ? _value.trendingMovieList
-          : trendingMovieList // ignore: cast_nullable_to_non_nullable
+      trandingMovieList: null == trandingMovieList
+          ? _value.trandingMovieList
+          : trandingMovieList // ignore: cast_nullable_to_non_nullable
               as List<HotAndNewData>,
-      tenseDramasMovieList: null == tenseDramasMovieList
-          ? _value.tenseDramasMovieList
-          : tenseDramasMovieList // ignore: cast_nullable_to_non_nullable
+      tenseDramaMovieList: null == tenseDramaMovieList
+          ? _value.tenseDramaMovieList
+          : tenseDramaMovieList // ignore: cast_nullable_to_non_nullable
               as List<HotAndNewData>,
       southIndianMovieList: null == southIndianMovieList
           ? _value.southIndianMovieList
@@ -268,8 +268,8 @@ abstract class _$$_InitialCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   $Res call(
       {String stateId,
       List<HotAndNewData> pastYearMovieList,
-      List<HotAndNewData> trendingMovieList,
-      List<HotAndNewData> tenseDramasMovieList,
+      List<HotAndNewData> trandingMovieList,
+      List<HotAndNewData> tenseDramaMovieList,
       List<HotAndNewData> southIndianMovieList,
       List<HotAndNewData> trandingTvList,
       bool isLoading,
@@ -288,8 +288,8 @@ class __$$_InitialCopyWithImpl<$Res>
   $Res call({
     Object? stateId = null,
     Object? pastYearMovieList = null,
-    Object? trendingMovieList = null,
-    Object? tenseDramasMovieList = null,
+    Object? trandingMovieList = null,
+    Object? tenseDramaMovieList = null,
     Object? southIndianMovieList = null,
     Object? trandingTvList = null,
     Object? isLoading = null,
@@ -304,13 +304,13 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value._pastYearMovieList
           : pastYearMovieList // ignore: cast_nullable_to_non_nullable
               as List<HotAndNewData>,
-      trendingMovieList: null == trendingMovieList
-          ? _value._trendingMovieList
-          : trendingMovieList // ignore: cast_nullable_to_non_nullable
+      trandingMovieList: null == trandingMovieList
+          ? _value._trandingMovieList
+          : trandingMovieList // ignore: cast_nullable_to_non_nullable
               as List<HotAndNewData>,
-      tenseDramasMovieList: null == tenseDramasMovieList
-          ? _value._tenseDramasMovieList
-          : tenseDramasMovieList // ignore: cast_nullable_to_non_nullable
+      tenseDramaMovieList: null == tenseDramaMovieList
+          ? _value._tenseDramaMovieList
+          : tenseDramaMovieList // ignore: cast_nullable_to_non_nullable
               as List<HotAndNewData>,
       southIndianMovieList: null == southIndianMovieList
           ? _value._southIndianMovieList
@@ -338,15 +338,15 @@ class _$_Initial implements _Initial {
   const _$_Initial(
       {required this.stateId,
       required final List<HotAndNewData> pastYearMovieList,
-      required final List<HotAndNewData> trendingMovieList,
-      required final List<HotAndNewData> tenseDramasMovieList,
+      required final List<HotAndNewData> trandingMovieList,
+      required final List<HotAndNewData> tenseDramaMovieList,
       required final List<HotAndNewData> southIndianMovieList,
       required final List<HotAndNewData> trandingTvList,
       required this.isLoading,
       required this.hasError})
       : _pastYearMovieList = pastYearMovieList,
-        _trendingMovieList = trendingMovieList,
-        _tenseDramasMovieList = tenseDramasMovieList,
+        _trandingMovieList = trandingMovieList,
+        _tenseDramaMovieList = tenseDramaMovieList,
         _southIndianMovieList = southIndianMovieList,
         _trandingTvList = trandingTvList;
 
@@ -359,18 +359,18 @@ class _$_Initial implements _Initial {
     return EqualUnmodifiableListView(_pastYearMovieList);
   }
 
-  final List<HotAndNewData> _trendingMovieList;
+  final List<HotAndNewData> _trandingMovieList;
   @override
-  List<HotAndNewData> get trendingMovieList {
+  List<HotAndNewData> get trandingMovieList {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_trendingMovieList);
+    return EqualUnmodifiableListView(_trandingMovieList);
   }
 
-  final List<HotAndNewData> _tenseDramasMovieList;
+  final List<HotAndNewData> _tenseDramaMovieList;
   @override
-  List<HotAndNewData> get tenseDramasMovieList {
+  List<HotAndNewData> get tenseDramaMovieList {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tenseDramasMovieList);
+    return EqualUnmodifiableListView(_tenseDramaMovieList);
   }
 
   final List<HotAndNewData> _southIndianMovieList;
@@ -394,7 +394,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'HomeState(stateId: $stateId, pastYearMovieList: $pastYearMovieList, trendingMovieList: $trendingMovieList, tenseDramasMovieList: $tenseDramasMovieList, southIndianMovieList: $southIndianMovieList, trandingTvList: $trandingTvList, isLoading: $isLoading, hasError: $hasError)';
+    return 'HomeState(stateId: $stateId, pastYearMovieList: $pastYearMovieList, trandingMovieList: $trandingMovieList, tenseDramaMovieList: $tenseDramaMovieList, southIndianMovieList: $southIndianMovieList, trandingTvList: $trandingTvList, isLoading: $isLoading, hasError: $hasError)';
   }
 
   @override
@@ -406,9 +406,9 @@ class _$_Initial implements _Initial {
             const DeepCollectionEquality()
                 .equals(other._pastYearMovieList, _pastYearMovieList) &&
             const DeepCollectionEquality()
-                .equals(other._trendingMovieList, _trendingMovieList) &&
+                .equals(other._trandingMovieList, _trandingMovieList) &&
             const DeepCollectionEquality()
-                .equals(other._tenseDramasMovieList, _tenseDramasMovieList) &&
+                .equals(other._tenseDramaMovieList, _tenseDramaMovieList) &&
             const DeepCollectionEquality()
                 .equals(other._southIndianMovieList, _southIndianMovieList) &&
             const DeepCollectionEquality()
@@ -424,8 +424,8 @@ class _$_Initial implements _Initial {
       runtimeType,
       stateId,
       const DeepCollectionEquality().hash(_pastYearMovieList),
-      const DeepCollectionEquality().hash(_trendingMovieList),
-      const DeepCollectionEquality().hash(_tenseDramasMovieList),
+      const DeepCollectionEquality().hash(_trandingMovieList),
+      const DeepCollectionEquality().hash(_tenseDramaMovieList),
       const DeepCollectionEquality().hash(_southIndianMovieList),
       const DeepCollectionEquality().hash(_trandingTvList),
       isLoading,
@@ -442,8 +442,8 @@ abstract class _Initial implements HomeState {
   const factory _Initial(
       {required final String stateId,
       required final List<HotAndNewData> pastYearMovieList,
-      required final List<HotAndNewData> trendingMovieList,
-      required final List<HotAndNewData> tenseDramasMovieList,
+      required final List<HotAndNewData> trandingMovieList,
+      required final List<HotAndNewData> tenseDramaMovieList,
       required final List<HotAndNewData> southIndianMovieList,
       required final List<HotAndNewData> trandingTvList,
       required final bool isLoading,
@@ -454,9 +454,9 @@ abstract class _Initial implements HomeState {
   @override
   List<HotAndNewData> get pastYearMovieList;
   @override
-  List<HotAndNewData> get trendingMovieList;
+  List<HotAndNewData> get trandingMovieList;
   @override
-  List<HotAndNewData> get tenseDramasMovieList;
+  List<HotAndNewData> get tenseDramaMovieList;
   @override
   List<HotAndNewData> get southIndianMovieList;
   @override
