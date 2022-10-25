@@ -18,57 +18,62 @@ class EveryoncesWatchingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        kheight10,
-        const Text(
-          'Movie Title',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          kheight10,
+          Text(
+            movieName,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        kheight10,
-        const Text(
-          'Landing the lead in the school musical is a dream come true for jodi,until the pressure sends her confidence - and her relationship - into a tailspin',
-          style: TextStyle(
-            color: greyColor,
+          kheight10,
+          Text(
+            description,
+            style: const TextStyle(
+              color: greyColor,
+            ),
+            maxLines: 4,
+            overflow: TextOverflow.ellipsis,
           ),
-        ),
-        kheight20,
-         VideoWidget(url: posterPath),
-        kheight10,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: const [
-            CunstomButtonWidget(
-              text: 'Share',
-              icon: Icons.near_me_outlined,
-              textSize: 10,
-              fontWeight: FontWeight.w300,
-              textColor: greyColor,
-            ),
-            kwidth,
-            CunstomButtonWidget(
-              text: 'My List',
-              icon: Icons.add,
-              textSize: 10,
-              fontWeight: FontWeight.w300,
-              textColor: greyColor,
-            ),
-            kwidth,
-            CunstomButtonWidget(
-              text: 'Play',
-              textSize: 10,
-              icon: Icons.play_arrow_rounded,
-              fontWeight: FontWeight.w300,
-              textColor: greyColor,
-            ),
-            kwidth,
-          ],
-        )
-      ],
+          kheight20,
+          VideoWidget(url: posterPath),
+          kheight10,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: const [
+              CunstomButtonWidget(
+                text: 'Share',
+                icon: Icons.near_me_outlined,
+                textSize: 10,
+                fontWeight: FontWeight.w300,
+                textColor: greyColor,
+              ),
+              kwidth,
+              CunstomButtonWidget(
+                text: 'My List',
+                icon: Icons.add,
+                textSize: 10,
+                fontWeight: FontWeight.w300,
+                textColor: greyColor,
+              ),
+              kwidth,
+              CunstomButtonWidget(
+                text: 'Play',
+                textSize: 10,
+                icon: Icons.play_arrow_rounded,
+                fontWeight: FontWeight.w300,
+                textColor: greyColor,
+              ),
+              kwidth,
+            ],
+          )
+        ],
+      ),
     );
   }
 }
