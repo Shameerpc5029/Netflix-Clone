@@ -10,8 +10,9 @@ HotAndNewResp _$HotAndNewRespFromJson(Map<String, dynamic> json) =>
     HotAndNewResp(
       page: json['page'] as int?,
       results: (json['results'] as List<dynamic>?)
-          ?.map((e) => HotAndNewData.fromJson(e as Map<String, dynamic>))
-          .toList(),
+              ?.map((e) => HotAndNewData.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$HotAndNewRespToJson(HotAndNewResp instance) =>

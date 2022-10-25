@@ -7,8 +7,10 @@ class MainTitleCard extends StatelessWidget {
   const MainTitleCard({
     Key? key,
     required this.title,
+    required this.posterList,
   }) : super(key: key);
   final String title;
+  final List<String> posterList;
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +25,16 @@ class MainTitleCard extends StatelessWidget {
           kheight10,
           LimitedBox(
             maxHeight: 200,
-            child: ListView.separated(
+            child: ListView(
               scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemBuilder: ((context, index) => const MainCard()),
-              separatorBuilder: ((context, index) => kwidth),
-              itemCount: 10,
+              children: List.generate(
+                posterList.length,
+                (index) => MainCard(
+                  imageUrl: posterList[index],
+                ),
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

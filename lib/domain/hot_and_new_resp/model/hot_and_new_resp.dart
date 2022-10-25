@@ -6,9 +6,9 @@ class HotAndNewResp {
   int? page;
 
   @JsonKey(name: 'results')
-  List<HotAndNewData>? results;
+  List<HotAndNewData> results;
 
-  HotAndNewResp({this.page, this.results});
+  HotAndNewResp({this.page, this.results=const[]});
 
   factory HotAndNewResp.fromJson(Map<String, dynamic> json) {
     return _$HotAndNewRespFromJson(json);

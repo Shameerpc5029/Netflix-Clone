@@ -1,12 +1,14 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_app/application/home/home_bloc.dart';
 import 'package:netflix_app/core/colors/colors.dart';
 import 'package:netflix_app/core/constants.dart';
 import 'package:netflix_app/presentation/home/widgets/background_card.dart';
-
 import 'package:netflix_app/presentation/home/widgets/main_title_card.dart';
 import 'package:netflix_app/presentation/home/widgets/number_card.dart';
-
+import 'package:netflix_app/presentation/home/widgets/number_title_card.dart';
 import 'package:netflix_app/presentation/widgets/main_title.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
@@ -16,6 +18,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPersistentFrameCallback((_) {
+      BlocProvider.of<HomeBloc>(context).add(const GetHomeScreenData());
+    });
     return Scaffold(
       body: ValueListenableBuilder(
         valueListenable: scrollNotifier,
@@ -32,44 +37,77 @@ class HomeScreen extends StatelessWidget {
             },
             child: Stack(
               children: [
-                ListView(
-                  children: [
-                    const BackgroundCard(),
-                    const MainTitleCard(
-                      title: 'Released in the past year',
-                    ),
-                    const MainTitleCard(
-                      title: 'Trending Now',
-                    ),
-                    kheight10,
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const MainTitle(
-                          title: 'Top 10 Tv Shows In India Today',
+                BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) {
+                    if (state.isLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
                         ),
-                        kheight10,
-                        LimitedBox(
-                          maxHeight: 200,
-                          child: ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            itemBuilder: ((context, index) => NumberCard(
-                                  index: index,
-                                )),
-                            separatorBuilder: ((context, index) => kwidth),
-                            itemCount: 10,
+                      );
+                    } else if (state.hasError) {
+                      return const Center(
+                        child: Text(
+                          'Error while Getting Data',
+                          style: TextStyle(
+                            color: Colors.white,
                           ),
                         ),
+                      );
+                    }
+
+                    final _releasedPastedYear =
+                        state.pastYearMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+
+                    final _tranding = state.trendingMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+
+                    final _drama = state.tenseDramasMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+
+                    final _southIndian = state.southIndianMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+
+                    final _top10 = state.southIndianMovieList.map((m) {
+                      return '$imageAppendUrl${m.posterPath}';
+                    }).toList();
+                    return SingleChildScrollView(
+                        child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const BackgroundCard(),
+                        if (_releasedPastedYear.length >= 10)
+                          MainTitleCard(
+                            title: 'Released in the past year',
+                            posterList: _releasedPastedYear,
+                          ),
+                        if (_tranding.length >= 10)
+                          MainTitleCard(
+                            title: 'Trending Now',
+                            posterList: _tranding,
+                          ),
+                        kheight10,
+
+                        ///
+                        NumberTitleCard(posterList: _top10),
+                        if (_drama.length >= 10)
+                          MainTitleCard(
+                            title: 'Tense Dramas',
+                            posterList: _drama,
+                          ),
+                        if (_southIndian.length >= 10)
+                          MainTitleCard(
+                            title: 'South Indian Cinema',
+                            posterList: _southIndian,
+                          ),
                       ],
-                    ),
-                    const MainTitleCard(
-                      title: 'Tense Dramas',
-                    ),
-                    const MainTitleCard(
-                      title: 'South Indian Cinema',
-                    ),
-                  ],
+                    ));
+                  },
                 ),
                 scrollNotifier.value == true
                     ? AnimatedContainer(

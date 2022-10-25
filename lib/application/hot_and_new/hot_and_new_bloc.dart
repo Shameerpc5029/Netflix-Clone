@@ -28,7 +28,7 @@ class HotAndNewBloc extends Bloc<HotAndNewEvent, HotAndNewState> {
       final _result = await _hotAndNewService.getHotAndNewMovieData();
 
       //data to state
-      final newState = _result.fold(
+      final _newState = _result.fold(
         (MainFailure failure) {
           return const HotAndNewState(
             comingSoonList: [],
@@ -39,20 +39,20 @@ class HotAndNewBloc extends Bloc<HotAndNewEvent, HotAndNewState> {
         },
         (HotAndNewResp resp) {
           return HotAndNewState(
-            comingSoonList: resp.results!,
+            comingSoonList: resp.results,
             everyOneIsWatchingList: state.everyOneIsWatchingList,
             isLoading: false,
             hasError: false,
           );
         },
       );
-      emit(newState);
+      emit(_newState);
     });
 
     //Get hot and new tv data
 
-    on<LoadDataEveryoneInWatching>((event, emit)async {
-        //sent loading to ui
+    on<LoadDataEveryoneInWatching>((event, emit) async {
+      //sent loading to ui
       emit(
         const HotAndNewState(
           comingSoonList: [],
@@ -77,7 +77,7 @@ class HotAndNewBloc extends Bloc<HotAndNewEvent, HotAndNewState> {
         (HotAndNewResp resp) {
           return HotAndNewState(
             comingSoonList: state.comingSoonList,
-            everyOneIsWatchingList: resp.results!,
+            everyOneIsWatchingList: resp.results,
             isLoading: false,
             hasError: false,
           );
